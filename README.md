@@ -1,31 +1,29 @@
 # Syncromatics.Cake.GoGitVer
 
-Write a single-paragraph explanation of this project. It should describe what the software does and why it exists. Finish the paragraph with a compelling reason to use the software.
-
-_Consider a spiffy animated GIF or screenshot here_
+This Cake AddIn extends Cake with [gogitver](https://github.com/annymsMthd/gogitver)  functionality.
+Use it to easily semantically version your projects across all platforms with specially-formed
+commit messages.
 
 ## Quickstart
 
-This section should get the reader into using the software as quickly as possible. Favor examples over exposistion. For example:
+Add this addin to your Cake script:
 
-Add the `ThingClient` package to your project:
-
-```bash
-dotnet add package ThingClient
+```chsarp
+#addin "Syncromatics.Cake.GoGitVer"
 ```
 
-Then use it to do a thing:
+Then use it to retrieve a version:
 
 ```csharp
-var client = new ThingClient.Client();
-var result = await client.DoThing();
-if (result.HasThing)
-{
-    Console.WriteLine($"The result is {result.Message}");
-}
+var versionInfo = GoGitVer.GetCurrentVersion();
+
+var fullSemVer = VersionInfo.FullVersion;
+var majorVersion = VersionInfo.MajorVersion;
+var preReleaseTag = VersionInfo.PreReleaseTag;
 ```
 
-If available, add a link to other documentation for this software. Avoid documenting the entire project in this README.
+Other parsed properties are available -- see the XMLDoc comments on VersionInfo for comprehensive
+descriptions.
 
 ## Building
 
@@ -33,7 +31,21 @@ If available, add a link to other documentation for this software. Avoid documen
 [![NuGet](https://img.shields.io/nuget/v/.svg)](https://www.nuget.org/packages//)
 [![NuGet Pre Release](https://img.shields.io/nuget/vpre/.svg)](https://www.nuget.org/packages//)
 
-Write a few sentences on how to set up a build environment for this software. These instructions should include prerequisites like required tools, frameworks, and libraries that the reader will need to successfully build this software.
+This project is built using the Cake scripts located in the `ci-script` folder.
+
+### On Windows
+
+```powershell
+cd ci-script
+./build.ps1
+```
+
+### On Linux
+
+```bash
+cd ci-script
+./build.sh
+```
 
 ## Code of Conduct
 

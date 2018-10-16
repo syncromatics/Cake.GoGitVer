@@ -1,0 +1,23 @@
+﻿<Project Sdk="Microsoft.NET.Sdk">
+  <PropertyGroup>
+    <TargetFramework>netstandard2.0</TargetFramework>
+  </PropertyGroup>
+  <ItemGroup>
+    <PackageReference Include="Cake.Core" Version="0.26.0" />
+  </ItemGroup>
+  <ItemGroup>
+    <Content Include="content\executables\**">
+      <CopyToOutputDirectory>PreserveNewest</CopyToOutputDirectory>
+      <PackagePath>content/executables/gogitver_darwin</PackagePath>
+      <Pack>true</Pack>
+    </Content>
+    <Content Include="content\executables\gogitver_linux">
+      <PackagePath>content/executables/gogitver_linux</PackagePath>
+      <Pack>true</Pack>
+    </Content>
+    <Content Include="content\executables\gogitver_windows.exe">
+      <PackagePath>content/executables/gogitver_windows.exe</PackagePath>
+      <Pack>true</Pack>
+    </Content>
+  </ItemGroup>
+</Project>
